@@ -17,3 +17,12 @@ jobs:
       run: |
         chmod +x ./fbt
         ./fbt
+    - name: zip dist
+      run: |
+        cd dist/*
+        zip ../../firmware.zip *
+    - name: Upload ZIP
+      uses: actions/upload-artifact@v3
+      with:
+        name: get zip
+        path: ./firmware.zip
