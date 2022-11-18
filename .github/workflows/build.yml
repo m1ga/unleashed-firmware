@@ -13,16 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: fbt
+    - name: Compile Firmware
       run: |
         chmod +x ./fbt
         ./fbt
-    - name: zip dist
-      run: |
-        cd dist/*
-        zip ../../firmware.zip *
-    - name: Upload ZIP
+    - name: Generate artifact
       uses: actions/upload-artifact@v3
       with:
-        name: get zip
-        path: ./firmware.zip
+        name: download ZIP
+        path: dist/*/*
