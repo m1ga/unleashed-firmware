@@ -15,21 +15,21 @@ jobs:
     - uses: actions/checkout@v3
     - name: Remove some games/plugins
       run: |
-        rm -rf applications/plugins/tictactoe_game
-        rm -rf applications/plugins/tetris_game
-        rm -rf applications/plugins/snake_game
-        rm -rf applications/plugins/zombiez
-        rm -rf applications/plugins/minesweeper
-        rm -rf applications/plugins/game15
-        rm -rf applications/plugins/flappy_bird
-        rm -rf applications/plugins/doom
-        rm -rf applications/plugins/arkanoid
-        rm -rf applications/plugins/heap_defence_game
-        rm -rf applications/plugins/metronome
+        rm -rf ./applications/plugins/tictactoe_game
+        rm -rf ./applications/plugins/tetris_game
+        rm -rf ./applications/plugins/snake_game
+        rm -rf ./applications/plugins/zombiez
+        rm -rf ./applications/plugins/minesweeper
+        rm -rf ./applications/plugins/game15
+        rm -rf ./applications/plugins/flappy_bird
+        rm -rf ./applications/plugins/doom
+        rm -rf ./applications/plugins/arkanoid
+        rm -rf ./applications/plugins/heap_defence_game
+        rm -rf ./applications/plugins/metronome
     - name: Compile Firmware
       run: |
         chmod +x ./fbt
-        ./fbt
+        ./fbt COMPACT=1 DEBUG=0 updater_package
     - name: Generate artifact
       uses: actions/upload-artifact@v3
       with:
